@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Books Overview</title>
+    
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, shrink-to-fit=no"/>
+    <meta name="theme-color" content="#ffffff"/>
+    
+    
+    <!-- Web Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:500,600,900&display=swap" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+    <!--File for overview book reading-->
+    <link rel="manifest" href="book_review.json"/>
+
+    <!-- Scripts -->
+    <script>
+      // Book searching API 
+      const findBooks = (elem) => {
+          const terms = elem.val();
+          const url = 'https://www.googleapis.com/books/v1/volumes';
+          const handleResults = (data) =>
+              dna.clone('book', data.items, { empty: true, fade: true });
+          fetchJson.get(url, { q: terms }).then(handleResults);
+          console.log(terms);  
+          };
+      </script>
+    <link rel="stylesheet" href="book_review.css"/>
+  </head>
+
+  <body>
+    <aside>
+      <!------------------------------------------------------------------------------------>
+      <!--Book Categories-->
+      <h2>Browse Categories</h2>
+      <div class="collapse-accordion">
+          <ul>
+              <li>
+                  <input type="checkbox" id="list-item-1" name="accrodion">
+                  <label for="list-item-1" class="first"><span class="expandText">Non-Fiction</span><span class="collpaseText">Collapse List</span></label>
+                  <ul>
+                    <h3
+                      class="book-authors"
+                      onclick='updateFilter(this,"subject");toggleModal();'>
+                      <li>Autobiography</li>
+                    </h3>
+
+                    <h3
+                      class="book-authors"
+                      onclick='updateFilter(this,"subject");toggleModal();'>
+                      <li>Biography</li>
+                    </h3>
+
+                    <h3
+                      class="book-authors"
+                      onclick='updateFilter(this,"subject");toggleModal();'>
+                      <li>Business/Economy</li>
+                    </h3>
+
+                    <h3
+                      class="book-authors"
+                      onclick='updateFilter(this,"subject");toggleModal();'>
+                      <li>Encyclopedia</li>
+                    </h3>
+
+                    <h3
+                      class="book-authors"
+                      onclick='updateFilter(this,"subject");toggleModal();'>
+                      <li>Guide</li>
+                    </h3>
+                  </ul>
+              </li>
+
+              <li>
+                  <input type="checkbox" id="list-item-2" name="accrodion">
+                  <label for="list-item-2"><span class="expandText">Fiction</span><span class="collpaseText">Collapse List</span></label>
+                  <ul>
+                    <h3
+                      class="book-authors"
+                      onclick='updateFilter(this,"subject");toggleModal();'>
+                      <li>Fantastic</li>
+                    </h3>
+
+                    <h3
+                      class="book-authors"
+                      onclick='updateFilter(this,"subject");toggleModal();'>
+                      <li>Fantasy</li>
+                    </h3>
+
+                    <h3
+                      class="book-authors"
+                      onclick='updateFilter(this,"subject");toggleModal();'>
+                      <li>Mystery</li>
+                    </h3>
+
+                    <h3
+                      class="book-authors"
+                      onclick='updateFilter(this,"subject");toggleModal();'>
+                      <li>Thriller</li>
+                    </h3>
+
+                    <h3
+                      class="book-authors"
+                      onclick='updateFilter(this,"subject");toggleModal();'>
+                      <li>Western</li>
+                    </h3>
+                  </ul>
+              </li>
+
+              <li>
+                  <input type="checkbox" id="list-item-3" name="accrodion">
+                  <label for="list-item-3" class="last"><span class="expandText">Daily Routine</span><span class="collpaseText">Collapse List</span></label>
+                  <ul>
+                    <h3
+                      class="book-authors"
+                      onclick='updateFilter(this,"subject");toggleModal();'>
+                      <li>Cooking</li>
+                    </h3>
+
+                    <h3
+                      class="book-authors"
+                      onclick='updateFilter(this,"subject");toggleModal();'>
+                      <li>Sport/Fitness</li>
+                    </h3>
+
+                    <h3
+                      class="book-authors"
+                      onclick='updateFilter(this,"subject");toggleModal();'>
+                      <li>Hobbies</li>
+                    </h3>
+
+                    <h3
+                      class="book-authors"
+                      onclick='updateFilter(this,"subject");toggleModal();'>
+                      <li>Travel</li>
+                    </h3>
+
+                    <h3
+                      class="book-authors"
+                      onclick='updateFilter(this,"subject");toggleModal();'>
+                      <li>Languages</li>
+                    </h3>
+                  </ul>
+              </li>
+
+              <li>
+                <input type="checkbox" id="list-item-4" name="accrodion">
+                <label for="list-item-4" class="last"><span class="expandText">Adults</span><span class="collpaseText">Collapse List</span></label>
+                <ul>
+                  <h3
+                      class="book-authors"
+                      onclick='updateFilter(this,"subject");toggleModal();'>
+                    <li>Detective</li>
+                  </h3>
+
+                  <h3
+                      class="book-authors"
+                      onclick='updateFilter(this,"subject");toggleModal();'>
+                    <li>Drama</li>
+                  </h3>
+
+                  <h3
+                      class="book-authors"
+                      onclick='updateFilter(this,"subject");toggleModal();'>
+                    <li>Comedy</li>
+                  </h3>
+
+                  <h3
+                      class="book-authors"
+                      onclick='updateFilter(this,"subject");toggleModal();'>
+                    <li>Horror</li>
+                  </h3>
+
+                  <h3
+                      class="book-authors"
+                      onclick='updateFilter(this,"subject");toggleModal();'>
+                    <li>Classic</li>
+                  </h3>
+                </ul>
+            </li>
+            
+            <li>
+              <input type="checkbox" id="list-item-5" name="accrodion">
+              <label for="list-item-5" class="last"><span class="expandText">Children's Literature</span><span class="collpaseText">Collapse List</span></label>
+              <ul>
+                <h3
+                      class="book-authors"
+                      onclick='updateFilter(this,"subject");toggleModal();'>
+                  <li>Manga</li>
+                </h3>
+
+                <h3
+                      class="book-authors"
+                      onclick='updateFilter(this,"subject");toggleModal();'>
+                  <li>Comic Book</li>
+                </h3>
+
+                <h3
+                      class="book-authors"
+                      onclick='updateFilter(this,"subject");toggleModal();'>
+                  <li>Fairytales</li>
+                </h3>
+
+                <h3
+                      class="book-authors"
+                      onclick='updateFilter(this,"subject");toggleModal();'>
+                  <li>Picture Book</li>
+                </h3>
+
+                <h3
+                      class="book-authors"
+                      onclick='updateFilter(this,"subject");toggleModal();'>
+                  <li>Pre-School</li>
+                </h3>
+              </ul>
+            </li>
+            <!------------------------------------------------------------------------------------>
+
+            <!------------------------------------------------------------------------------------>
+            <!--Content of main page-->
+            <br>
+            <li>
+              <a class="nav scrolltoview current" href="#search">
+                <span class="icon">🔍</span>Search</a>
+            </li>
+            
+            <li>
+              <a class="nav scrolltoview" href="#content">
+                <span class="icon">&#9776;</span>Content</a>
+            </li>
+            
+            <!--Movie search-->
+            <li>
+              <a class="nav scrolltoview" href="#footer">
+                <span class="icon">&#127909;</span>Movie</a>
+            </li>
+
+            <!--Wishlist window-->
+            <li>
+              <a class="nav scrolltoview" onclick="WishListPopUp()"><i class="fa fa-heart" aria-hidden="true"></i> Wishlist</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <!------------------------------------------------------------------------------------>
+
+      <!------------------------------------------------------------------------------------>
+      <!--Dark mode theme-->
+      <div class="spacer"></div>
+      <label class="theme-switch" for="checkbox" title="Night mode">
+        <input type="checkbox" id="checkbox" aria-label="Night mode" />
+        <div class="slider round"></div>
+      </label>
+    </aside>
+    <!------------------------------------------------------------------------------------>
+
+    <!------------------------------------------------------------------------------------>
+    <!--Content book list-->
+    <main id="main" class="main">
+      <article>
+        <section id="search" class="results" data-smart-update=findBooks>
+          <div class="flex">
+            <input
+              id="search-box"
+              class="search-box"
+              placeholder="Search books..."
+              aria-label="Search books"
+            />
+          </div>
+          <div class="list-book search">
+            <div class="prompt">Enter a search term</div>
+          </div>
+        </section>
+
+        <div id="content">
+          <section class="results">
+            <div class="list-book content">
+              <a class="category" href="#love">
+                <div class="book">
+                  <div class="book-info">
+                    <h1 class="section-title">Daily Top</h1>
+                  </div>
+                </div>
+              </a>
+              <a class="category" href="#science">
+                <div class="book">
+                  <div class="book-info">
+                    <h1 class="section-title">New Books</h1>
+                  </div>
+                </div>
+              </a>
+              <a class="category" href="#inspirational">
+                <div class="book">
+                  <div class="book-info">
+                    <h1 class="section-title">Bestsellers</h1>
+                  </div>
+                </div>
+              </a>
+              <a class="category" href="#authors">
+                <div class="book">
+                  <div class="book-info">
+                    <h1 class="section-title">Top list</h1>
+                  </div>
+                </div>
+              </a>
+            </div>
+          </section>
+
+          <section id="love" class="results">
+            <div class="flex">
+              <h1 class="section-title">Daily Top</h1>
+              <div>
+                <button
+                  id="love-prev"
+                  class="pagination prev"
+                  onclick="prev('love')"
+                >
+                  ◀
+                </button>
+                <button
+                  id="love-next"
+                  class="pagination next"
+                  onclick="next('love')"
+                >
+                  ▶
+                </button>
+              </div>
+            </div>
+            <div class="list-book love categories">
+              <div class="prompt">
+                <div class="loader"></div>
+              </div>
+            </div>
+            <div class="fade left"></div>
+            <div class="fade right"></div>
+          </section>
+
+
+          <section id="science" class="results">
+            <div class="flex">
+              <h1 class="section-title">New Books</h1>
+              <div>
+                <button
+                  id="science-prev"
+                  class="pagination prev"
+                  onclick="prev('science')"
+                >
+                  ◀
+                </button>
+                <button
+                  id="science-next"
+                  class="pagination next"
+                  onclick="next('science')"
+                >
+                  ▶
+                </button>
+              </div>
+            </div>
+            <div class="list-book science categories">
+              <div class="prompt">
+                <div class="loader"></div>
+              </div>
+            </div>
+            <div class="fade left"></div>
+            <div class="fade right"></div>
+          </section>
+
+          <section id="inspirational" class="results">
+            <div class="flex">
+              <h1 class="section-title">Bestsellers</h1>
+              <div>
+                <button
+                  id="inspirational-prev"
+                  class="pagination prev"
+                  onclick="prev('inspirational')"
+                >
+                  ◀
+                </button>
+                <button
+                  id="inspirational-next"
+                  class="pagination next"
+                  onclick="next('inspirational')"
+                >
+                  ▶
+                </button>
+              </div>
+            </div>
+            <div class="list-book inspirational categories">
+              <div class="prompt">
+                <div class="loader"></div>
+              </div>
+            </div>
+            <div class="fade left"></div>
+            <div class="fade right"></div>
+          </section>
+          <section id="authors" class="results">
+            <div class="flex">
+              <h1 class="section-title">Top list</h1>
+              <div>
+                <button
+                  id="authors-prev"
+                  class="pagination prev"
+                  onclick="prev('authors')"
+                >
+                  ◀
+                </button>
+                <button
+                  id="authors-next"
+                  class="pagination next"
+                  onclick="next('authors')"
+                >
+                  ▶
+                </button>
+              </div>
+            </div>
+            <div class="list-book authors categories">
+              <div class="prompt">
+                <div class="loader"></div>
+              </div>
+            </div>
+            <div class="fade left"></div>
+            <div class="fade right"></div>
+          </section>
+        </div>
+        <!------------------------------------------------------------------------------------>
+        <!--Footer-->
+        <footer id="footer" class="footer">
+          <p><h2>&#169; Oral Alikhan, Geumjeong-gu, Busan</h2></p>
+              <form id="movie_form">
+                  <input
+                      type="text"
+                      id="movie_search"
+                      placeholder="Movie Search"
+                      class="movie_search"/>
+              </form>
+        <div id="movie_content"></div>
+        </footer>
+      </article>
+    </main>
+    <!------------------------------------------------------------------------------------>
+    
+    <!------------------------------------------------------------------------------------>
+    <!--All functions calling-->
+    <script src="book_review.js"></script>
+  </body>
+</html>
+

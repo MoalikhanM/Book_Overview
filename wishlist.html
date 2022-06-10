@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <title>WishList</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    
+        <link rel="stylesheet" href="http://meyerweb.com/eric/tools/css/reset/reset.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Karma:400,600">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lobster">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="book_review.css">
+    </head>
+
+    <body>
+    <header class="header-section fixed-width">
+        <h1>WishList</h1>
+        <a onclick="self.close()"><i class="fa fa-times" aria-hidden="true"></i>Close</a>
+    </header>
+    <section class="form-section fixed-width">
+        <button id="new-book-btn" class="generic-button">New book</button>
+        <form id="new-book-form">
+        <p>
+            <input id="new-book-title" class="user-input" type="text" placeholder="Title">
+        </p>
+        <p>
+            <input id="new-book-author" class="user-input" type="text" placeholder="Author">
+        </p>
+        <p>
+            <select id="new-book-category" class="user-input">
+            <option value="" disabled selected>Select a category</option>
+            <option value="arts-and-music">Arts &amp; Music</option>
+            <option value="autobiography">Autobiography</option>
+            <option value="biography">Biography</option>
+            <option value="business-and-economy">Business &amp; Economy</option>
+            <option value="classic">Classic</option>
+            <option value="comedy">Comedy</option>
+            <option value="comic">Comic Book</option>
+            <option value="cooking">Cooking</option>
+            <option value="detective">Detective</option>
+            <option value="drama">Drama</option>
+            <option value="educational">Educational</option>
+            <option value="encyclopedia">Encyclopedia</option>
+            <option value="entertainment">Entertainment</option>
+            <option value="fairytales">Fairytales</option>
+            <option value="fantasic">Fantastic</option>
+            <option value="fantasy">Fantasy</option>
+            <option value="guide">Guide</option>
+            <option value="health">Health</option>
+            <option value="history">History</option>
+            <option value="hobby">Hobby</option>
+            <option value="horror">Horror</option>
+            <option value="kids">Kids</option>
+            <option value="languages">Languages</option>
+            <option value="literature">Literature</option>
+            <option value="manga">Manga</option>
+            <option value="medical">Medical</option>
+            <option value="mysteries">Mysteries</option>
+            <option value="political-affairs">Political affairs</option>
+            <option value="religion">Religion</option>
+            <option value="romance">Romance</option>
+            <option value="science-and-math">Science &amp; Math</option>
+            <option value="social-sciences">Social Sciences</option>
+            <option value="sport-and-fitness">Sport &amp; Fitness</option>
+            <option value="travel">Travel</option>
+            <option value="technolgy">Technology</option>
+            <option value="thriller">Thriller</option>
+            <option value="western">Western</option>
+            </select>
+        </p>
+
+        <button id="add-book-btn" type="submit" class="generic-button">Add book</button>
+        <div id="error-message" class="error-message"></div>
+        </form>
+    </section>
+
+    <section class="book-list-section fixed-width">
+        <ul id="book-list"></ul>
+    </section>
+    <script src="wishlist_function.js"></script>
+    
+    </body>
+</html>
